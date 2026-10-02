@@ -113,6 +113,6 @@ pnpm build
 ## 📜 Credits & Brand Notice
 
 - **Platform**: EverAfter
-- **Designed & Developed by**: [Infinvo Tech](https://infinvo.tech)
+- **Designed & Developed by**: [Infinvo Tech](https://infinvo-tech.vercel.app/)
 - **Copyright**: © 2026 EverAfter. All rights reserved.
 - *Notice: This application is a client-side frontend demo. All vendors, venues, guests, and payment statuses are fictional local demo data.*

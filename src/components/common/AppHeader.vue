@@ -15,6 +15,7 @@ import {
 } from 'lucide-vue-next'
 import { useWorkspaceStore } from '@/stores/workspace'
 import { useNotificationStore } from '@/stores/notifications'
+import { BRAND } from '@/config/constants'
 import ThemeToggle from './ThemeToggle.vue'
 import Modal from './Modal.vue'
 import AppLogo from './AppLogo.vue'
@@ -295,7 +296,7 @@ const filteredSearchItems = () => {
           </p>
         </div>
         <div class="text-xs text-warmgray-dark dark:text-warmgray-light">
-          Crafted with care by <strong>Infinvo Tech</strong>.
+          Crafted with care by <a :href="BRAND.creatorUrl" target="_blank" rel="noopener noreferrer" class="text-gold font-semibold underline underline-offset-2 hover:text-gold-dark transition-colors">Infinvo Tech</a>.
         </div>
       </div>
       <template #footer>

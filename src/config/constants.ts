@@ -4,7 +4,7 @@ export const BRAND = {
   description: 'Plan your celebration, bring your ideas together, and make every moment unforgettable.',
   category: 'Wedding planning and event management',
   creator: 'Designed & Developed by Infinvo Tech',
-  creatorUrl: 'https://infinvo.tech',
+  creatorUrl: 'https://infinvo-tech.vercel.app/',
   copyright: '© 2026 EverAfter. All rights reserved.',
   demoNotice: 'Demo Application — All vendors, venues, guests, and payment statuses are fictional local demo data.'
 }
