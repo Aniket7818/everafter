@@ -383,6 +383,27 @@ const calendarOptions = computed(() => ({
   font-family: 'Cormorant Garamond', Georgia, serif !important;
   font-size: 1.5rem !important;
   font-weight: 700 !important;
+  color: #292725 !important;
+}
+
+.dark .fc-toolbar-title {
+  color: #FAF7F2 !important;
+}
+
+.fc-col-header-cell-cushion,
+.fc-daygrid-day-number,
+.fc-list-day-text,
+.fc-list-day-side-text {
+  color: #292725 !important;
+  text-decoration: none !important;
+  font-weight: 600;
+}
+
+.dark .fc-col-header-cell-cushion,
+.dark .fc-daygrid-day-number,
+.dark .fc-list-day-text,
+.dark .fc-list-day-side-text {
+  color: #FAF7F2 !important;
 }
 
 .fc-event {
@@ -390,5 +411,10 @@ const calendarOptions = computed(() => ({
   border-radius: 6px;
   padding: 2px 4px;
   font-size: 0.75rem;
+}
+
+.fc-event-title, .fc-event-time {
+  color: #FFFFFF !important;
+  font-weight: 600;
 }
 </style>

@@ -187,7 +187,7 @@ const filteredItems = computed(() => {
         class="px-4 py-2 rounded-xl font-semibold whitespace-nowrap transition-all flex items-center gap-2"
         :class="activeCollectionId === col.id 
           ? 'bg-gold text-white shadow-xs' 
-          : 'bg-white dark:bg-charcoal text-warmgray hover:text-charcoal border border-champagne/40'"
+          : 'bg-white dark:bg-charcoal text-charcoal-light dark:text-warmgray-light hover:text-charcoal dark:hover:text-white border border-champagne/40'"
       >
         <span>{{ col.title }}</span>
         <span class="text-[10px] px-1.5 py-0.2 rounded-full" :class="activeCollectionId === col.id ? 'bg-white/20' : 'bg-champagne/30'">

@@ -55,7 +55,7 @@ const quickActions = [
 <template>
   <div class="space-y-8">
     <!-- Header Hero Banner with Couple Info & Live Countdown -->
-    <div class="relative overflow-hidden rounded-3xl bg-linear-to-r from-charcoal via-charcoal-light to-charcoal text-ivory p-6 sm:p-8 lg:p-10 shadow-luxury border border-champagne/30">
+    <div class="relative overflow-hidden rounded-3xl bg-[#1C1A19] bg-gradient-to-r from-[#1C1A19] via-charcoal to-[#1C1A19] text-ivory p-6 sm:p-8 lg:p-10 shadow-luxury border border-gold/40">
       <!-- Golden Ambient Glow -->
       <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-gold/15 blur-3xl pointer-events-none"></div>
 

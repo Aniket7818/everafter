@@ -154,7 +154,7 @@ const compareItems = computed(() => {
         type="button" 
         @click="currentTab = 'all'"
         class="px-4 py-1.5 rounded-lg font-semibold transition-colors"
-        :class="currentTab === 'all' ? 'bg-white dark:bg-charcoal text-gold shadow-xs' : 'text-warmgray'"
+        :class="currentTab === 'all' ? 'bg-white dark:bg-charcoal text-gold font-bold shadow-xs' : 'text-charcoal-light dark:text-warmgray-light hover:text-charcoal'"
       >
         All Saved ({{ enrichedShortlist.length }})
       </button>
@@ -162,7 +162,7 @@ const compareItems = computed(() => {
         type="button" 
         @click="currentTab = 'vendors'"
         class="px-4 py-1.5 rounded-lg font-semibold transition-colors"
-        :class="currentTab === 'vendors' ? 'bg-white dark:bg-charcoal text-gold shadow-xs' : 'text-warmgray'"
+        :class="currentTab === 'vendors' ? 'bg-white dark:bg-charcoal text-gold font-bold shadow-xs' : 'text-charcoal-light dark:text-warmgray-light hover:text-charcoal'"
       >
         Vendors ({{ vendorStore.shortlistedVendors.length }})
       </button>
@@ -170,7 +170,7 @@ const compareItems = computed(() => {
         type="button" 
         @click="currentTab = 'venues'"
         class="px-4 py-1.5 rounded-lg font-semibold transition-colors"
-        :class="currentTab === 'venues' ? 'bg-white dark:bg-charcoal text-gold shadow-xs' : 'text-warmgray'"
+        :class="currentTab === 'venues' ? 'bg-white dark:bg-charcoal text-gold font-bold shadow-xs' : 'text-charcoal-light dark:text-warmgray-light hover:text-charcoal'"
       >
         Venues ({{ vendorStore.shortlistedVenues.length }})
       </button>

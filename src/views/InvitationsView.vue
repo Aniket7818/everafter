@@ -240,7 +240,10 @@ function printInvitation() {
               Together with their families
             </p>
 
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-charcoal dark:text-ivory leading-tight">
+            <h2 
+              class="font-serif text-3xl sm:text-4xl font-bold tracking-tight leading-tight"
+              :class="invitationStore.invitation.template === 'Modern' ? 'text-ivory' : 'text-charcoal'"
+            >
               {{ invitationStore.invitation.coupleNames }}
             </h2>
 
@@ -248,7 +251,10 @@ function printInvitation() {
               request the honor of your presence to celebrate
             </p>
 
-            <div class="font-serif text-xl sm:text-2xl font-bold text-gold-dark dark:text-gold-light py-1">
+            <div 
+              class="font-serif text-xl sm:text-2xl font-bold py-1"
+              :class="invitationStore.invitation.template === 'Modern' ? 'text-gold-light' : 'text-gold-dark'"
+            >
               {{ invitationStore.invitation.eventName }}
             </div>
           </div>

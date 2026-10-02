@@ -96,7 +96,7 @@ const mobileNavigation = [
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors"
                 :class="route.path === item.to 
                   ? 'bg-gold/15 text-gold-dark dark:text-gold-light font-semibold' 
-                  : 'text-warmgray hover:bg-ivory dark:hover:bg-charcoal-light'"
+                  : 'text-charcoal-light dark:text-warmgray-light hover:text-charcoal dark:hover:text-white hover:bg-champagne/20 dark:hover:bg-charcoal-light'"
               >
                 <component :is="item.icon" class="w-4 h-4 text-gold" />
                 <span>{{ item.name }}</span>

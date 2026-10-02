@@ -82,7 +82,7 @@ function handleNotifClick(notif: any) {
         class="px-4 py-1.5 rounded-xl font-semibold transition-all whitespace-nowrap"
         :class="selectedCategory === cat.id 
           ? 'bg-gold text-white shadow-xs' 
-          : 'bg-white dark:bg-charcoal border border-champagne/40 text-warmgray hover:text-charcoal'"
+          : 'bg-white dark:bg-charcoal border border-champagne/40 text-charcoal-light dark:text-warmgray-light hover:text-charcoal dark:hover:text-white'"
       >
         {{ cat.name }}
       </button>

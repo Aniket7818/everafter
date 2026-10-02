@@ -146,10 +146,10 @@ const filteredSearchItems = () => {
             :key="act.label"
             type="button"
             @click="handleQuickAction(act.to)"
-            class="w-full text-left px-3 py-2 rounded-xl text-xs text-charcoal dark:text-ivory hover:bg-ivory dark:hover:bg-charcoal-light flex items-center justify-between transition-colors"
+            class="w-full text-left px-3 py-2 rounded-xl text-xs font-medium text-charcoal-900 dark:text-ivory hover:bg-champagne/20 dark:hover:bg-charcoal-light flex items-center justify-between transition-colors"
           >
             <span>{{ act.label }}</span>
-            <ChevronDown class="w-3.5 h-3.5 -rotate-90 text-warmgray" />
+            <ChevronDown class="w-3.5 h-3.5 -rotate-90 text-charcoal-light dark:text-warmgray" />
           </button>
         </div>
       </div>
