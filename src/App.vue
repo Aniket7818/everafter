@@ -17,9 +17,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen">
-    <router-view />
-    <!-- Global notice for mobile mode recommending desktop for best UX; automatically disappears when switched to desktop -->
+  <div class="min-h-screen flex flex-col">
+    <!-- Top banner for mobile mode: seamlessly placed at top, disappears when switched to desktop -->
     <MobileDesktopNotice />
+    <div class="flex-1">
+      <router-view />
+    </div>
   </div>
 </template>

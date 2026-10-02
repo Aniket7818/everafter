@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
-import { Monitor, Laptop, X, ArrowRight, Sparkles, Smartphone } from 'lucide-vue-next'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { Monitor, X, ArrowRight, Laptop, Sparkles } from 'lucide-vue-next'
 
 const isMobile = ref(false)
 const isDismissed = ref(false)
@@ -9,9 +9,8 @@ function checkViewport() {
   const mobile = window.innerWidth < 1024
   isMobile.value = mobile
 
-  // If user switches to desktop, reset dismissed flag so if they switch back to mobile,
-  // it reminds them again as requested:
-  // "when switch desktop that notification or pop up will disappear, when ever user open mobile mode tell everytime to use desktop"
+  // If user switches to desktop screen size (>= 1024px),
+  // automatically disappear and reset dismissed state so it alerts them if they return to mobile mode
   if (!mobile) {
     isDismissed.value = false
   }
@@ -34,79 +33,63 @@ function dismiss() {
 </script>
 
 <template>
-  <!-- Only renders when in mobile mode and not dismissed. Auto-disappears on desktop! -->
+  <!-- Top Banner: Appears in mobile mode, disappears automatically on desktop -->
   <Transition
     enter-active-class="transition duration-300 ease-out"
-    enter-from-class="opacity-0 translate-y-4 scale-95"
-    enter-to-class="opacity-100 translate-y-0 scale-100"
+    enter-from-class="-translate-y-full opacity-0"
+    enter-to-class="translate-y-0 opacity-100"
     leave-active-class="transition duration-200 ease-in"
-    leave-from-class="opacity-100 translate-y-0 scale-100"
-    leave-to-class="opacity-0 translate-y-4 scale-95"
+    leave-from-class="translate-y-0 opacity-100"
+    leave-to-class="-translate-y-full opacity-0"
   >
-    <div 
+    <aside 
       v-if="isMobile && !isDismissed" 
-      class="fixed bottom-4 left-4 right-4 z-50 sm:max-w-md sm:mx-auto select-none"
-      role="alert"
-      aria-live="polite"
+      class="sticky top-0 z-50 w-full bg-linear-to-r from-charcoal-950 via-charcoal to-charcoal-950 text-ivory border-b border-gold/50 shadow-xl px-3.5 py-2.5 transition-all select-none"
+      role="banner"
+      aria-label="Desktop recommendation notice"
     >
-      <div class="relative overflow-hidden rounded-3xl bg-charcoal text-ivory p-5 shadow-2xl border-2 border-gold/60 backdrop-blur-md">
-        <!-- Ambient gold backlight glow -->
-        <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-gold/20 blur-2xl pointer-events-none"></div>
-
-        <div class="relative z-10 flex items-start gap-4">
-          <!-- Icon with pulse -->
-          <div class="w-12 h-12 rounded-2xl bg-charcoal-light border border-gold/40 flex items-center justify-center text-gold shrink-0 mt-0.5 shadow-soft">
-            <Monitor class="w-6 h-6 animate-pulse" />
+      <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+        <!-- Icon & Message -->
+        <div class="flex items-center gap-3 min-w-0 flex-1">
+          <div class="w-8 h-8 rounded-xl bg-gold/20 border border-gold/40 flex items-center justify-center text-gold shrink-0 shadow-sm">
+            <Monitor class="w-4 h-4 animate-pulse" />
           </div>
 
-          <!-- Message -->
-          <div class="space-y-1.5 flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] font-bold uppercase tracking-widest text-champagne bg-charcoal-light px-2 py-0.5 rounded-full border border-champagne/30">
-                Desktop Recommended
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-serif font-bold text-xs sm:text-sm text-white tracking-wide">
+                Best Experienced on Desktop
+              </span>
+              <span class="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-gold/25 text-champagne border border-gold/40">
+                Recommended
               </span>
             </div>
-
-            <h3 class="font-serif text-lg font-bold text-white leading-tight">
-              Best Experienced on Desktop
-            </h3>
-
-            <p class="text-xs text-champagne/90 leading-relaxed">
-              For a better planning experience, please open <strong class="text-white">EverAfter</strong> on your laptop or desktop. The Interactive Seating Studio, Multi-Day Timeline, Master Calendar, and Budget Analytics are optimized for larger screens.
+            <p class="text-[11px] text-champagne/85 leading-tight truncate sm:whitespace-normal mt-0.5">
+              For full features like the Seating Studio, Calendar &amp; Budget, please open on a laptop or desktop.
             </p>
-
-            <!-- Action buttons -->
-            <div class="flex items-center gap-2 pt-2.5">
-              <button 
-                type="button" 
-                @click="dismiss"
-                class="px-4 py-2 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors"
-              >
-                Continue on Mobile
-              </button>
-
-              <button 
-                type="button" 
-                @click="dismiss"
-                class="px-4 py-2 rounded-xl text-xs font-semibold bg-gold hover:bg-gold-dark text-white transition-all shadow-sm flex items-center gap-1.5"
-              >
-                <span>Understood</span>
-                <ArrowRight class="w-3 h-3" />
-              </button>
-            </div>
           </div>
+        </div>
 
-          <!-- Close 'X' Button -->
+        <!-- Action / Dismiss Button -->
+        <div class="flex items-center gap-2 shrink-0">
           <button 
             type="button" 
             @click="dismiss"
-            class="p-1 rounded-full text-warmgray hover:text-white transition-colors shrink-0"
-            aria-label="Close notification"
+            class="px-2.5 py-1 rounded-lg text-[11px] font-semibold text-champagne/90 hover:text-white bg-white/10 hover:bg-white/15 border border-white/10 transition-colors hidden sm:inline-block"
+          >
+            Continue
+          </button>
+          <button 
+            type="button" 
+            @click="dismiss"
+            class="p-1.5 rounded-lg text-champagne/70 hover:text-white hover:bg-white/10 transition-colors"
+            title="Dismiss notice"
+            aria-label="Dismiss banner"
           >
             <X class="w-4 h-4" />
           </button>
         </div>
       </div>
-    </div>
+    </aside>
   </Transition>
 </template>
